@@ -2,25 +2,97 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="min-h-screen flex items-center px-6"
+      className="min-h-screen border-b-4 border-black bg-[#FFFDF5] px-6 py-24"
     >
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-bold mb-8">
-          Education
-        </h2>
+      <div className="mx-auto flex min-h-[calc(100vh-12rem)] max-w-5xl items-center">
+        <div className="w-full">
+          <div className="mb-12 inline-block -rotate-1 border-4 border-black bg-[#FFD93D] px-6 py-3 shadow-[6px_6px_0_#000]">
+            <h2 className="text-4xl font-black uppercase md:text-5xl">
+              Education
+            </h2>
+          </div>
 
-        <div className="border rounded-xl p-6">
-          <h3 className="text-2xl font-semibold">
-            Universitas Dian Nuswantoro
-          </h3>
+          <div className="relative">
+            <div className="absolute -top-5 -left-5 h-full w-full border-4 border-black bg-[#FF8FAB]" />
 
-          <p>Bachelor of Informatics Engineering</p>
+            <div className="relative border-4 border-black bg-white shadow-[10px_10px_0_#000]">
+              <div className="flex flex-col justify-between gap-5 border-b-4 border-black bg-[#6C9CFF] p-6 md:flex-row md:items-center">
+                <div>
+                  <p className="mb-2 font-black uppercase">
+                    University
+                  </p>
 
-          <p>2022 - 2026</p>
+                  <h3 className="text-2xl font-black uppercase md:text-4xl">
+                    Universitas Dian Nuswantoro
+                  </h3>
+                </div>
 
-          <p>GPA: 3.41 / 4.00</p>
-          <div className="mt-6"> <h4 className="font-semibold mb-3"> Relevant Coursework </h4> <div className="flex flex-wrap gap-2"> <span className="px-3 py-1 rounded-full bg-gray-100"> Web Programming </span> <span className="px-3 py-1 rounded-full bg-gray-100"> Database Systems </span> <span className="px-3 py-1 rounded-full bg-gray-100"> Computer Networks </span> <span className="px-3 py-1 rounded-full bg-gray-100"> Internet of Things </span> <span className="px-3 py-1 rounded-full bg-gray-100"> Cyber Security </span> </div>
-        </div>
+                <div className="w-fit border-[3px] border-black bg-[#FFD93D] px-5 py-3 font-black shadow-[4px_4px_0_#000]">
+                  SEP 2022 — FEB 2026
+                </div>
+              </div>
+
+              <div className="grid gap-5 p-6 md:grid-cols-2 md:p-8">
+                <div className="border-[3px] border-black bg-[#FFFDF5] p-5">
+                  <p className="mb-2 text-sm font-black uppercase">
+                    Degree
+                  </p>
+                  <p className="text-xl font-black">
+                    Bachelor of Informatics Engineering
+                  </p>
+                </div>
+
+                <div className="border-[3px] border-black bg-[#7EE787] p-5">
+                  <p className="mb-2 text-sm font-black uppercase">
+                    Grade Point Average
+                  </p>
+                  <p className="text-3xl font-black">
+                    3.41 <span className="text-lg">/ 4.00</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-14">
+            <h3 className="mb-7 text-2xl font-black uppercase">
+              Certifications
+            </h3>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              <div className="border-4 border-black bg-[#FFD93D] p-6 shadow-[6px_6px_0_#000]">
+                <p className="text-xl font-black uppercase">
+                  BNSP Certified Web Developer
+                </p>
+                <p className="mt-3 font-bold">
+                  LSP Universitas Dian Nuswantoro
+                </p>
+                <p className="mt-2 font-semibold">April 2026</p>
+              </div>
+
+              <div className="border-4 border-black bg-[#6C9CFF] p-6 shadow-[6px_6px_0_#000]">
+                <p className="text-xl font-black uppercase">
+                  English Proficiency Assessment
+                </p>
+                <p className="mt-3 font-bold">CFLT — Score 483</p>
+                <p className="mt-2 font-semibold">
+                  Valid until January 2028
+                </p>
+              </div>
+
+              <div className="border-4 border-black bg-[#7EE787] p-6 shadow-[6px_6px_0_#000]">
+                <p className="text-xl font-black uppercase">
+                  Internship Certificate
+                </p>
+                <p className="mt-3 font-bold">
+                  Dinas Kominfo Kota Semarang
+                </p>
+                <p className="mt-2 font-semibold">
+                  January — February 2025
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
