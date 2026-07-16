@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 export default function Career() {
   const experiences = [
     {
@@ -51,47 +55,139 @@ export default function Career() {
   ],
 },
   ];
+  const container = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const fadeLeft = {
+  hidden: {
+    opacity: 0,
+    x: -80,
+  },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.8,
+    },
+  },
+};
+
+const fadeRight = {
+  hidden: {
+    opacity: 0,
+    x: 80,
+  },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.8,
+    },
+  },
+};
+
+const fadeUp = {
+  hidden: {
+    opacity: 0,
+    y: 40,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+    },
+  },
+};
 
   return (
     <section
       id="career"
       className="border-b-4 border-black bg-[#FF8FAB] px-6 py-24"
     >
-      <div className="mx-auto max-w-6xl">
+      <motion.div
+  className="mx-auto max-w-6xl"
+  variants={container}
+  initial="hidden"
+  whileInView="show"
+  viewport={{
+    once: false,
+    amount: 0.2,
+  }}
+>
         <div className="mb-16 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-          <div className="inline-block w-fit rotate-1 border-4 border-black bg-[#FFD93D] px-6 py-3 shadow-[6px_6px_0_#000]">
-            <h2 className="text-4xl font-black uppercase md:text-5xl">
-              Experience
-            </h2>
-          </div>
+  <motion.div
+    variants={fadeLeft}
+    className="inline-block w-fit rotate-1 border-4 border-black bg-[#FFD93D] px-6 py-3 shadow-[6px_6px_0_#000]"
+  >
+    <h2 className="text-4xl font-black uppercase md:text-5xl">
+      Experience
+    </h2>
+  </motion.div>
 
-          <div className="max-w-md border-[3px] border-black bg-white px-5 py-3 font-bold shadow-[5px_5px_0_#000]">
-            Professional and hands-on technical experience across web
-            development, IT support, and network operations.
-          </div>
-        </div>
+  <motion.div
+    variants={fadeRight}
+    className="max-w-md border-[3px] border-black bg-white px-5 py-3 font-bold shadow-[5px_5px_0_#000]"
+  >
+    Professional and hands-on technical experience across web
+    development, IT support, and network operations.
+  </motion.div>
+</div>
 
         <div className="relative">
           <div className="absolute top-0 bottom-0 left-[22px] hidden w-1 bg-black md:block" />
 
-          <div className="space-y-14">
+          <motion.div
+  variants={container}
+  className="space-y-14"
+>
             {experiences.map((experience) => (
-              <article
-                key={experience.number}
-                className="relative md:pl-20"
-              >
-                <div
-                  className={`${experience.color} absolute top-8 left-0 z-10 hidden h-12 w-12 items-center justify-center border-4 border-black font-black md:flex`}
-                >
+              <motion.article
+  key={experience.number}
+  variants={
+    Number(experience.number) % 2 === 0
+      ? fadeRight
+      : fadeLeft
+  }
+  className="relative md:pl-20"
+>
+                <motion.div
+  whileHover={{
+    scale:1.15,
+    y:-6,
+}}
+  transition={{
+    duration: 0.5,
+  }}
+  className={`${experience.color} absolute top-8 left-0 z-10 hidden h-12 w-12 items-center justify-center border-4 border-black font-black md:flex`}
+>
                   {experience.number}
-                </div>
+                </motion.div>
 
                 <div className="relative">
                   <div
                     className={`${experience.accent} absolute -top-4 -left-4 h-full w-full border-4 border-black`}
                   />
 
-                  <div className="relative border-4 border-black bg-white shadow-[10px_10px_0_#000]">
+                  <motion.div
+  whileHover={{
+  y: -10,
+  scale: 1.015,
+  rotate: -0.5,
+}}
+transition={{
+  type: "spring",
+  stiffness: 300,
+  damping: 18,
+}}
+  className="relative border-4 border-black bg-white shadow-[10px_10px_0_#000]"
+>
                     <div
                       className={`${experience.color} flex flex-col justify-between gap-5 border-b-4 border-black p-6 md:flex-row md:items-center`}
                     >
@@ -109,22 +205,44 @@ export default function Career() {
                         </p>
                       </div>
 
-                      <div className="w-fit shrink-0 border-[3px] border-black bg-white px-5 py-3 font-black shadow-[4px_4px_0_#000]">
+                      <motion.div
+  whileHover={{
+    rotate: -2,
+    scale: 1.05,
+  }}
+  transition={{
+    type: "spring",
+    stiffness: 250,
+  }}
+  className="w-fit shrink-0 border-[3px] border-black bg-white px-5 py-3 font-black shadow-[4px_4px_0_#000]"
+>
                         {experience.period}
-                      </div>
+                      </motion.div>
                     </div>
 
                     <div className="p-6 md:p-8">
-                      <p className="mb-8 border-l-8 border-black pl-5 text-lg font-semibold leading-relaxed">
+                      <motion.p
+  variants={fadeUp}
+  className="mb-8 border-l-8 border-black pl-5 text-lg font-semibold leading-relaxed"
+>
                         {experience.description}
-                      </p>
+                      </motion.p>
 
                       <div className="grid gap-4 md:grid-cols-2">
                         {experience.responsibilities.map((item, index) => (
-                          <div
-                            key={item}
-                            className="flex gap-4 border-[3px] border-black bg-[#FFFDF5] p-4"
-                          >
+                          <motion.div
+  key={item}
+  variants={fadeUp}
+  whileHover={{
+    x: 8,
+    scale: 1.02,
+  }}
+  transition={{
+    type: "spring",
+    stiffness: 250,
+  }}
+  className="flex gap-4 border-[3px] border-black bg-[#FFFDF5] p-4"
+>
                             <span
                               className={`${experience.color} flex h-8 w-8 shrink-0 items-center justify-center border-2 border-black font-black`}
                             >
@@ -134,17 +252,17 @@ export default function Career() {
                             <p className="font-semibold leading-relaxed">
                               {item}
                             </p>
-                          </div>
+                          </motion.div>
                         ))}
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
-              </article>
+              </motion.article>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
