@@ -149,7 +149,7 @@ whileInView={{
                 color: "#FFD93D",
               },
               {
-                value: "6+",
+                value: "4",
                 label: "Projects",
                 color: "#FF8FAB",
               },
